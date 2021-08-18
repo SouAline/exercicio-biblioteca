@@ -3,9 +3,20 @@
 Biblioteca Ágil
 Você foi contratado para desenvolver um sistema de biblioteca no seu bairro. 
 Por enquanto, vocês possuem apenas 3 livros:
+
+
 Como fazer sentido e bater o martelo - Autor: Alexandro Aolchique - Ano: 2017
 Código Limpo - Autor: Tio Bob - Ano: 2001
 Basquete 101 - Autor: Hortência Marcari - Ano: 2010
+
+
+
+
+1 Como fazer sentido e bater o martelo - Autor: Alexandro Aolchique - Ano: 2017
+2 Código Limpo - Autor: Tio Bob - Ano: 2001
+3 Basquete 101 - Autor: Hortência Marcari - Ano: 2010
+
+
 
 Sempre que o sistema for inicializado, estes livros devem, obrigatoriamente, estarem cadastrados e disponíveis para retirada no sistema.
 Seus vizinhos gostariam de retirar, devolver e doar novos livros. Para isso, você deverá desenvolver as seguintes funcionalidades, que devem ser apresentadas para o usuário através de um menu:
@@ -23,7 +34,7 @@ Título: Código Limpo
 Autor: Tio Bob 
 Ano: 2001
 Status: Disponível
-Emprestado para: 
+Emprestado para: ---> input
 Após a retirada:
 Número: 00001
 Título: Código Limpo 
