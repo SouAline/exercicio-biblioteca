@@ -11,10 +11,11 @@ const livro = {
    autor: "",
    ano: ""
 }
+   let opcaoSelecionada = {
+      primeiraOpcao: ""
+   }
+   
 
-const opcaoSelecionada = {
-   primeiraOpcao: ""
-}
 //ordem do arquivo livros.js ---> nome do livro, autor, ano
 
 function imprimir(livro, i) {
@@ -22,6 +23,7 @@ function imprimir(livro, i) {
    const titulo = livro[0]
    const autor = livro[1]
    const ano = livro[2]
+   const status = 
    console.log(`O titulo do livro é ${titulo}`)
    console.log(`O autor do livro é ${autor}`)
    console.log(`O ano do livro é ${ano}`)
@@ -33,14 +35,14 @@ function defineIndice(indice) {
    return "000" + indice
 }
 
-function menu() {
+function menu(palavra) {
    console.log("Selecione sua opção")
    console.log("\n1 - Retirada de livros", "\n2 - Doação de livros", "\n3 - Devolução de livros\n")
 
    rl.question("O que você deseja fazer?", function (opcao) {
-      opcaoSelecionada.primeiraOpcao = opcao
+     opcaoSelecionada.primeiraOpcao = opcao.trim()
       console.log(opcaoSelecionada)
-      switch (opcao) {
+      switch (opcao.trim()) {
          case "1":
             retiralivro()
             break;
@@ -49,6 +51,9 @@ function menu() {
             break;
          case "3":
             devolveLivro()
+            break;
+         case "4":
+            disponibilidadeDoLivro()
             break;
          default:
             console.log("A opção selecionada não existe")
@@ -62,9 +67,9 @@ function cadastroLivro() {
    rl.question("Titulo: ", function (titulo) {
       rl.question("Autor: ", function (autor) {
          rl.question("Ano: ", function (ano) {
-            livro.titulo = titulo
-            livro.autor = autor
-            livro.ano = ano
+            livro.titulo = titulo.trim()
+            livro.autor = autor.trim()
+            livro.ano = ano.trim()
 
             console.log(livro)
             rl.close()
@@ -73,9 +78,12 @@ function cadastroLivro() {
    })
 }
 
-function retiralivro(retirada) {
+function disponibilidadeDoLivro(retirada) {
+// if (opcaoSelecionada){
+//    return "Indisponível"
+// }
 }
-
+console.log(disponibilidadeDoLivro())
 
 function devolveLivro() {
 }
