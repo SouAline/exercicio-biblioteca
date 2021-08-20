@@ -6,15 +6,19 @@ const rl = readline.createInterface({
    output: process.stdout
 })
 
-const livro = {
-   titulo: "",
-   autor: "",
-   ano: ""
-}
-   let opcaoSelecionada = {
-      primeiraOpcao: ""
+const livro = [
+   {
+      id: "",
+      titulo: "",
+      autor: "",
+      ano: "",
+      status: ""
    }
-   
+]
+let opcaoSelecionada = {
+   primeiraOpcao: ""
+}
+
 
 //ordem do arquivo livros.js ---> nome do livro, autor, ano
 
@@ -23,8 +27,8 @@ function imprimir(livro, i) {
    const titulo = livro[0]
    const autor = livro[1]
    const ano = livro[2]
-   const status = 
-   console.log(`O titulo do livro é ${titulo}`)
+   const status =
+      console.log(`O titulo do livro é ${titulo}`)
    console.log(`O autor do livro é ${autor}`)
    console.log(`O ano do livro é ${ano}`)
    console.log("\n")
@@ -40,7 +44,7 @@ function menu(palavra) {
    console.log("\n1 - Retirada de livros", "\n2 - Doação de livros", "\n3 - Devolução de livros\n")
 
    rl.question("O que você deseja fazer?", function (opcao) {
-     opcaoSelecionada.primeiraOpcao = opcao.trim()
+      opcaoSelecionada.primeiraOpcao = opcao.trim()
       console.log(opcaoSelecionada)
       switch (opcao.trim()) {
          case "1":
@@ -53,15 +57,16 @@ function menu(palavra) {
             devolveLivro()
             break;
          case "4":
-            disponibilidadeDoLivro()
+            buscarPorCodigo()
             break;
          default:
-            console.log("A opção selecionada não existe")
+            console.log("A opção selecionada não existe")        
             rl.close()
             break;
       }
    })
 }
+
 
 function cadastroLivro() {
    rl.question("Titulo: ", function (titulo) {
@@ -70,7 +75,7 @@ function cadastroLivro() {
             livro.titulo = titulo.trim()
             livro.autor = autor.trim()
             livro.ano = ano.trim()
-
+            livro.push.apply(livro, livros)
             console.log(livro)
             rl.close()
          })
@@ -78,16 +83,16 @@ function cadastroLivro() {
    })
 }
 
-function disponibilidadeDoLivro(retirada) {
-// if (opcaoSelecionada){
-//    return "Indisponível"
-// }
-}
-console.log(disponibilidadeDoLivro())
-
 function devolveLivro() {
 }
 
+function buscarPorCodigo(codigo) {
+   for (var i = 0; livros.length; i++) {
+       if (livros[i]) {
+           return livros[i]
+       }
+   }
+}
 
 //FOR --> variavel "i" é um contador, dentro dela esta sendo aramazenado o indice (sendo inicializado com zero), apos ela verificar que o arquivo livro é menor que o "i" ele incrementa o "i" e mais um.
 function main() {
