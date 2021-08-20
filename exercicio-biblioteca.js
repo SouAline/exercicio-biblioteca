@@ -77,6 +77,8 @@ function cadastroLivro() {
       rl.question("Autor: ", function (autor) {
          rl.question("Ano: ", function (ano) {
             rl.question("Status: ", function (status) {
+            
+            defineIndice(i)   
             livro.titulo = titulo.trim()
             livro.autor = autor.trim()
             livro.ano = ano.trim()
@@ -88,6 +90,7 @@ function cadastroLivro() {
                let autor = livro[i].autor
                let ano = livro[i].ano
                let status = livro[i].status
+               
                
                console.log(`Titulo: ${titulo}`)
                console.log(`Autor: ${autor} - Ano: ${ano}`)
