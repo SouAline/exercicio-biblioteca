@@ -12,9 +12,12 @@ const livro = [
       titulo: "",
       autor: "",
       ano: "",
-      status: ""
+      status: "" 
+     
    }
+   
 ]
+
 let opcaoSelecionada = {
    primeiraOpcao: ""
 }
@@ -27,10 +30,11 @@ function imprimir(livro, i) {
    const titulo = livro[0]
    const autor = livro[1]
    const ano = livro[2]
-   const status =
-      console.log(`O titulo do livro é ${titulo}`)
+ 
+   console.log(`O titulo do livro é ${titulo}`)
    console.log(`O autor do livro é ${autor}`)
    console.log(`O ano do livro é ${ano}`)
+   
    console.log("\n")
 }
 
@@ -72,12 +76,29 @@ function cadastroLivro() {
    rl.question("Titulo: ", function (titulo) {
       rl.question("Autor: ", function (autor) {
          rl.question("Ano: ", function (ano) {
+            rl.question("Status: ", function (status) {
             livro.titulo = titulo.trim()
             livro.autor = autor.trim()
             livro.ano = ano.trim()
-            livro.push.apply(livro, livros)
-            console.log(livro)
+            livro.status = status.trim()
+            livro.push({titulo,autor,ano,status})
+           
+            for (var i = 0; i < livro.length; i++) {
+               let titulo = livro[i].titulo
+               let autor = livro[i].autor
+               let ano = livro[i].ano
+               let status = livro[i].status
+               
+               console.log(`Titulo: ${titulo}`)
+               console.log(`Autor: ${autor} - Ano: ${ano}`)
+               console.log(`Status: ${status} \n\n`)
+              
+           }
+
+           
+           
             rl.close()
+         })
          })
       })
    })
@@ -101,6 +122,9 @@ function main() {
       livrosBusca = livros[i].split('-')
       imprimir(livrosBusca, i)
    }
+  
+
+
    menu()
 }
 
